@@ -13,19 +13,31 @@
             </router-link>
         </li>
     </ul>
+
+    <div class="pager" v-if="pager && pager.totalRecord > pager.pageSize && Object.keys(pager).length">
+      <ins-page :total="pager.totalRecord" v-model="pager.currentPage" :pageNum="pager.pageSize"></ins-page>
+    </div>
   </div>
 </template>
 <script lang="ts">
 import { Vue, Prop, Component } from 'vue-property-decorator';
-@Component
+@Component({
+  components: {
+    InsPage: () => import('@/components/base/mobile/InsPage.vue')
+  }
+})
 export default class cmsList extends Vue {
   @Prop({ default: () => [] }) private cmsData!: object[]; // cms内容数据
+  @Prop({ default: () => {} }) private pager!: object; // 分頁器數據
 }
 </script>
 
 <style lang="less" scoped>
 .content-list {
-  padding-left: 15%;
+  > ul {
+    padding-left: 15%;
+  }
+
   li {
     width: 16rem;
 

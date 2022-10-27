@@ -1,6 +1,6 @@
 <template>
     <div class="prm_banner mid-box">
-      <swiper class="swiper-no-swiping" :options="swiperOption" ref="mySwiper" v-if="bannerList.length">
+      <swiper class="swiper-no-swiping" :options="swiperOption" ref="mySwiper" v-if="(page || imgPath) && bannerList.length">
         <swiperSlide v-for="(slide, index) in bannerList" :key="index">
           <a :href="slide.Url || 'javascript:;'" :target="slide.Url ? slide.IsRedirect ? '_blank' : '_self' : ''">
             <img :src="slide.Image" />
@@ -10,7 +10,7 @@
     </div>
 </template>
 <script lang="ts">
-import { Vue, Prop, Component } from 'vue-property-decorator';
+import { Vue, Prop, Component, Watch } from 'vue-property-decorator';
 import { swiper, swiperSlide } from 'vue-awesome-swiper/src';
 @Component({
   components: {
@@ -21,6 +21,7 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper/src';
 export default class PrmBanner extends Vue {
     @Prop({ default: '' }) private page!: string; // 推廣頁面
     @Prop({ default: 0 }) private position!: number; // 推廣位置
+    @Prop({ default: '' }) private imgPath!: string; // banner圖片地址
 
     private bannerList: any[] = [];
     private prmName: string = '';
@@ -43,7 +44,16 @@ export default class PrmBanner extends Vue {
         this.swiperOption.noSwiping = false;
         }
 
-        this.getBanner();
+        if (this.page) {
+          this.getBanner();
+        }
+    }
+
+    @Watch('imgPath')
+    onChange () {
+      this.bannerList.push({
+        Image: this.imgPath
+      });
     }
 }
 </script>

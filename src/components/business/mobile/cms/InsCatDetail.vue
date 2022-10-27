@@ -1,11 +1,6 @@
 <template>
   <div id="container" class="catDetail">
-    <div class="DetailTitle">
-      <img :src="cmsCategory.ImagePath">
-      <div class="TitleBg">
-        <div class="innerBoxText">{{cmsCategory.Name}}</div>
-      </div>
-    </div>
+    <pageBanner :imgPath="cmsCategory.ImagePath" />
 
     <div class="catContent">
         <template v-if="cmsCategory.PageStyle === '0' || cmsCategory.PageStyle === '1'">
@@ -25,10 +20,11 @@
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 @Component({
   components: {
-    // InsBanner: () => import('@/components/base/InsBanner.vue'),
+    pageBanner: () => import('@/components/siteBusiness/mobile/pageBanner.vue'),
     InsCatLayout2: () => import('@/components/business/mobile/cms/InsCatLayout2.vue'),
     InsCatLayout3: () => import('@/components/business/mobile/cms/InsCatLayout3.vue'),
-    InsCatLayout4: () => import('@/components/business/mobile/cms/InsCatLayout4.vue')
+    // InsCatLayout4: () => import('@/components/business/mobile/cms/InsCatLayout4.vue')
+    InsCatLayout4: () => import('@/components/siteBusiness/mobile/cms/cmsList.vue')
   }
 })
 export default class insNews extends Vue {
