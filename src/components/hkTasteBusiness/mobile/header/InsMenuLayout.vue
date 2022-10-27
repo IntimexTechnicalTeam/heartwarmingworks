@@ -170,6 +170,7 @@ export default class InsMenuLayout extends Vue {
             border: 0;
             > li {
                 padding: 0 !important;
+                background-color: #fff !important;
 
                 > a > b,
                 > .el-submenu__title > .name {

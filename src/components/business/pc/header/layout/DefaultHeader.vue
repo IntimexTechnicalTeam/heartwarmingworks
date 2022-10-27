@@ -1,9 +1,9 @@
 <template>
 <div class="header-layout mid-box" v-cloak>
   <div class="menu-nav">
-    <img src="/HW/nav.png" />
+    <img src="/HW/nav.png" @click="show = !show" />
 
-    <div class="nav-box">
+    <div class="nav-box" v-show="show">
       <div class="handle-group">
         <InsLogin class="memberLogin"></InsLogin>
         <Shopcart class="memberLogin"></Shopcart>
@@ -45,6 +45,7 @@ export default class DefaultHeader extends Vue {
   @Prop() private showInFixed!: boolean;
 
   private key: string = '';
+  private show: boolean = false;
 
   getMenu () {
     this.$Api.promotion
@@ -242,6 +243,7 @@ export default class DefaultHeader extends Vue {
     top: 100%;
     right: calc(100% + 50px);
     z-index: 2;
+    cursor: pointer;
 
     /deep/ .nav-box {
       min-height: 750px;
@@ -252,7 +254,6 @@ export default class DefaultHeader extends Vue {
       background: #fff;
       padding: 30px 0;
       box-sizing: border-box;
-      display: none;
 
       .handle-group {
         display: flex;
