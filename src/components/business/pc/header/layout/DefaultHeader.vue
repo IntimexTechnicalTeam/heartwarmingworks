@@ -252,6 +252,7 @@ export default class DefaultHeader extends Vue {
       background: #fff;
       padding: 30px 0;
       box-sizing: border-box;
+      display: none;
 
       .handle-group {
         display: flex;

@@ -130,27 +130,31 @@ input[type="number"]{
   line-height: 2.3rem;
   cursor: pointer;
   display: inline-block;
-  border: 1px solid @base_color;
+  border: 1px solid #858585;
+  border-radius: 5px;
   margin:0 .5rem;
   padding: 0 1rem;
+  color: #fff;
+  background: #858585;
 }
 .noClick{
-  color: black;
-  background: white;
+  // color: black;
+  // background: white;
   cursor: not-allowed;
-  border: 1px solid @base_color;
+  // border: 1px solid @base_color;
   line-height: 2.3rem;
   display: inline-block;
 }
 .selectPage{
-    border: 1px solid @base_color;
+    border: 1px solid #858585;
     height: 2.45rem;
     padding: 0 0.5rem;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     outline: 0;
-    background: @base_color;
-    color: #fff;
+    background: #fff;
+    color: #858585;
+    border-radius: 5px;
 }
 .pageing{
   letter-spacing: 2px;

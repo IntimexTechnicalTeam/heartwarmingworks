@@ -34,6 +34,7 @@
       <div key="1" v-if="!waiting">
             <div class="prolist-box">
               <ins-productList :column="4" :allItems="proList" />
+              <!-- <div class="pager" v-if="totalRecord > 12"> -->
               <div class="pager" v-if="totalRecord > 12">
                 <InsPage
                   :total="totalRecord"

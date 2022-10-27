@@ -1,8 +1,6 @@
 <template>
   <div id="container" class="ProductSearch">
-        <div class="ProducBanner">
-            <ProductListSwiper :TitleName="$t('product.Producttitle')"/>
-        </div>
+        <pageBanner page="PromProductList" :position="0" />
         <div class="SearchSlide">
           <div class="leftSide">
             <advancedSearch @advancedChange="advancedChange" v-if="isAdvanced"  @closeSub="closeSub" @resetAll="resetAll" />
@@ -10,7 +8,7 @@
         </div>
       <div class="selectBar">
           <ul>
-            <li @click="showSearchSlide"><span class="el-icon-s-operation"></span><b>{{$t('product.Screening')}}</b></li>
+            <li @click="showSearchSlide"><b>{{$t('product.Screening')}}</b></li>
             <li>
               <select v-model="PriceItem" @change="getselect(PriceItem)">
                 <option value="desc">{{$t('product.PriceHL')}}</option>
@@ -41,9 +39,12 @@ import 'element-ui/lib/theme-chalk/index.css';
 import $ from 'jquery';
 @Component({
   components: {
-    InsProductList: () => import('@/components/hkTasteBusiness/mobile/product/HkProductWindow.vue'),
+    InsProductList: () => import('@/components/siteBusiness/mobile/product/ProItem.vue'),
     advancedSearch: () => import('@/components/hkTasteBusiness/mobile/product/InsAdvancedSearch.vue'),
-    ProductListSwiper: () => import('@/components/hkTasteBusiness/mobile/product/HkProductListSwiper.vue')
+    pageBanner: () =>
+      import(
+        /* webpackChunkName: 'product' */ '@/components/siteBusiness/mobile/pageBanner.vue'
+      )
   }
 })
 export default class InsProductSearch extends Vue {
@@ -183,6 +184,10 @@ export default class InsProductSearch extends Vue {
 </style>
 
 <style scoped lang="less">
+.prolist-box {
+  padding-bottom: 2rem;
+}
+
 .nocontentTips{
   width: 95%;
   margin: 0 auto;
@@ -245,25 +250,29 @@ export default class InsProductSearch extends Vue {
   }
 .selectBar{
     width: 100%;
-    margin: 0 auto;
+    margin: 2.5rem auto 1rem;
     display: inline-block;
-    margin-top: 2rem;
   ul{
     width: 95%;
     margin: 0 auto;
   }
   li{
-    float: left;
-    margin-right: 4%;
-    width: 47%;
-    background: #FFF;
-    border:1px solid #eee;
     font-size: 1.6rem;
-    background: #666666;
-    color: #FFF;
-    height: 3.5rem;
-    line-height: 3.5rem;
+    color: #1a1a1a;
+    padding: 0.5rem 0;
     list-style: none;
+    border-bottom: 1px solid;
+    position: relative;
+    text-align: left;
+    margin-bottom: 1rem;
+
+    &::after {
+      position: absolute;
+      content: '\25BC';
+      right: 1.5rem;
+      font-size: 1rem;
+    }
+
     span{
     width: 20%;
     display: inline-block;
@@ -271,30 +280,25 @@ export default class InsProductSearch extends Vue {
     text-align: center;
     }
     b{
-      width: 60%;
       display: inline-block;
       text-align: center;
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: 500;
+      color: #1a1a1a;
     }
     select{
     width: 100%;
     border: none;
-    padding-left: .5rem;
-    height: 3.5rem;
-    line-height: 3.5rem;
-    font-size: 1.2rem;
+    height: 90%;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background: url(/images/mobile/arrow-down-back.png) 98% 15px no-repeat;
+    // background: url(/images/mobile/arrow-down-back.png) 98% 15px no-repeat;
     background-size: 15px;
     outline: none;
-    }
-    &:last-child{
-      margin-right: 0px!important;
-      background: #FFF!important;
-      color:#333333;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1a1a1a;
     }
   }
 }

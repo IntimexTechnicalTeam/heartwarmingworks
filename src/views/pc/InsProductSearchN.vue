@@ -1,11 +1,7 @@
 <template>
   <div id="container">
-    <div class="ProducBanner">
-      <ProductListSwiper
-        class="innerBanner"
-        :TitleName="$t('product.Producttitle')"
-      />
-    </div>
+    <pageBanner page="PromProductList" :position="0" />
+
     <div class="ProductSearch">
       <div class="SearchSlide">
         <div class="leftSide">
@@ -20,14 +16,14 @@
       <div class="selectBar">
         <ul>
           <li @click="showSearchSlide">
-            <span class="el-icon-s-operation"></span
-            ><b>{{ $t("product.Screening") }}</b>
+            <!-- <span class="el-icon-s-operation"></span> -->
+            <b>{{ $t("product.Screening") }}</b>
           </li>
-          <li style="width: 810px;border: none;">
+          <!-- <li style="width: 810px;border: none;">
             {{ $t("product.Total") }} {{ totalRecord }}
             {{ $t("product.Product") }}
-          </li>
-          <li style="width: 140px;">
+          </li> -->
+          <li>
             <select v-model="PriceItem" @change="getselect(PriceItem)">
               <option value="">{{ $t("product.Paixu") }}</option>
               <option value="desc">{{ $t("product.PriceHL") }}</option>
@@ -79,9 +75,9 @@ import $ from 'jquery';
       import(
         /* webpackChunkName: 'product' */ '@/components/base/pc/InsPage.vue'
       ),
-    ProductListSwiper: () =>
+    pageBanner: () =>
       import(
-        /* webpackChunkName: 'product' */ '@/components/hkTasteBusiness/pc/product/HkProductListSwiper.vue'
+        /* webpackChunkName: 'product' */ '@/components/siteBusiness/pc/pageBanner.vue'
       )
   }
 })
@@ -335,17 +331,18 @@ export default class InsProductSearch extends Vue {
 }
 .selectBar {
   width: 100%;
-  margin: 0 auto;
-  display: inline-block;
-  margin-top: 2rem;
+  margin: 30px auto 70px;
+
   ul {
     width: 100%;
     margin: 0 auto;
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
   }
   li {
-    float: left;
+    width: 27%;
     margin-right: 4%;
-    border: 1px solid #eee;
     height: 40px;
     line-height: 40px;
     list-style: none;
@@ -353,6 +350,15 @@ export default class InsProductSearch extends Vue {
     justify-items: center;
     justify-content: center;
     align-items: center;
+    border-bottom: 2px solid;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: '\25BC';
+      right: 20px;
+    }
+
     span {
       width: 20%;
       display: inline-block;
@@ -364,24 +370,26 @@ export default class InsProductSearch extends Vue {
       width: 60%;
       display: inline-block;
       text-align: center;
-      font-size: 16px;
+      font-size: 20px;
       font-weight: 500;
-      color: #333333;
+      color: #1a1a1a;
     }
     select {
       width: 100%;
-      border: none;
+      border: 0;
       padding-left: 0.5rem;
       height: 40px;
       line-height: 40px;
-      font-size: 14px;
+      font-size: 20px;
+      color: #1a1a1a;
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-      background: url(/images/mobile/arrow-down-back.png) 90% 17px no-repeat;
+      // background: url(/images/mobile/arrow-down-back.png) 90% 17px no-repeat;
       background-size: auto;
       outline: none;
       cursor: pointer;
+      text-align: center;
     }
     &:last-child {
       margin-right: 0px !important;
@@ -390,7 +398,7 @@ export default class InsProductSearch extends Vue {
       cursor: pointer;
     }
     &:first-child {
-      width: 140px;
+      // width: 140px;
       cursor: pointer;
     }
   }
