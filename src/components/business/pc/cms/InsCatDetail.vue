@@ -176,7 +176,7 @@ export default class insNews extends Vue {
   .catContent {
       width: 1200px;
       margin: 0 auto;
-      padding: 15px 0;
+      padding: 15px 0 50px;
 
       .layer {
           font-size: 16px;

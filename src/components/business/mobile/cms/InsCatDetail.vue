@@ -181,7 +181,7 @@ export default class insNews extends Vue {
     width: 90%;
     margin: 0 auto;
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
 
     .layer {
       font-size: 1.2rem;

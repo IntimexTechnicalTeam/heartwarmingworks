@@ -1,15 +1,16 @@
 <template>
   <div id="container" class="PcContact">
+  <pageBanner :imgPath="ImgList" />
   <!-- 联络我们页面 -->
     <div class="Cmsbg" v-if="NewcateId=='40112'">
-      <transition name="slide">
+      <!-- <transition name="slide">
         <div key="1" v-if="!waiting" style="display:flex;">
            <div class="DetailTitle"><img :src="ImgList" v-show="ImgList!==null"><div class="TitleBg"><div class="innerBoxText">{{CateName}}</div></div></div>
       </div>
       </transition>
       <transition name="slide">
         <div class="faker" key="2" v-if="waiting" v-loading="true"></div>
-      </transition>
+      </transition> -->
       <div class="CmsContent">
         <div class="MapInfo">
           <p class="OurStores">{{$t('Cms.OurStores')}}</p>
@@ -41,17 +42,18 @@
     </div>
     <!-- 其他页面 -->
     <div class="CmsNormal" v-if="NewcateId!='40112'">
-      <transition name="slide">
+      <!-- <transition name="slide">
         <div key="1" v-if="!waiting" style="display:flex;">
             <div class="DetailTitle"><img :src="ImgList" v-show="ImgList!==null"><div class="TitleBg"><div class="innerBoxText">{{CateName}}</div></div></div>
       </div>
       </transition>
       <transition name="slide">
         <div class="faker" key="2" v-if="waiting" v-loading="true"></div>
-      </transition>
+      </transition> -->
       <div class="CmsContent">
-        <p class="TitleName">{{TitleName}}</p>
-        <p v-html="content.Body"></p>
+        <!-- <p class="TitleName">{{TitleName}}</p> -->
+        <div v-html="content.Body"></div>
+
       </div>
     </div>
   </div>
@@ -62,7 +64,7 @@ import { FrontE } from '@/sdk/common/SysConst';
 import Cookie from 'js-cookie';
 @Component({
   components: {
-    PkcmsBanner: () => import('@/components/hkTasteBusiness/pc/cms/PkcmsBanner.vue')
+    pageBanner: () => import('@/components/siteBusiness/pc/pageBanner.vue')
   }
 })
 export default class InsCmsContent extends Vue {
