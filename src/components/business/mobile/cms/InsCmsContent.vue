@@ -3,7 +3,7 @@
     <pageBanner :imgPath="ImgList" />
 
     <!-- 联络我们页面 -->
-    <div class="Cmsbg" v-if="NewcateId=='40112'">
+    <div class="Cmsbg" v-if="content.Key=='contactUs'">
       <!-- <transition name="slide">
         <div key="1" v-if="!waiting" style="display:flex;">
            <div class="DetailTitle"><img :src="ImgList" v-show="ImgList!==null"><div class="TitleBg"><div class="innerBoxText">{{CateName}}</div></div></div>
@@ -13,24 +13,9 @@
         <div class="faker" key="2" v-if="waiting" v-loading="true"></div>
       </transition> -->
       <div class="CmsContent">
-          <p class="OurStores">{{$t('Cms.OurStores')}}</p>
-          <p class="BusinessHours">{{$t('Cms.BusinessHours')}}: 07:30 - 19:00</p>
-          <p v-html="content.Body"></p>
-         <div class="clear"></div>
+        <div v-html="content.Body"></div>
       </div>
-      <div class="CmsMap">
-            <p class="addressIcon"><i></i>{{$t('home.Address')}}：</p>
-            <div class="perList" v-for="(val,index) in ShopList" :key="index" v-on:click="showContent(val.Id,index)" :class="{'activeColor':cindex==index}">
-                <div class="icon"><i></i></div>
-                <div class="content">
-                  <p>{{val.Title}}</p>
-                  <p>{{val.DescOne}}</p>
-                  <p>{{val.DescTwo}}</p>
-                </div>
-            </div>
-            <p v-html="MapInfo" class="MapInfo"></p>
-      </div>
-      <div class="borderline"></div>
+
       <!-- 表单信息 -->
         <div class="FormMain">
           <p class="FormTitle">{{FormTitle}}</p>
@@ -39,7 +24,7 @@
         </div>
     </div>
     <!-- 其他页面 -->
-    <div class="CmsNormal" v-if="NewcateId!='40112'">
+    <div class="CmsNormal" v-else>
       <!-- <transition name="slide">
         <div key="1" v-if="!waiting" style="display:flex;">
               <div class="DetailTitle"><img :src="ImgList" v-show="ImgList!==null"><div class="TitleBg"><div class="innerBoxText">{{CateName}}</div></div></div>
@@ -117,6 +102,7 @@ export default class InsCmsContent extends Vue {
   getForm () {
     this.$Api.regAndPay.getHtml('ContactUs', this.lang, false).then(result => {
       this.htmlString = result.HtmlString;
+
       this.FormTitle = result.Title;
       this.$nextTick(() => {
         if (document.querySelectorAll('#Sign').length > 0) {
@@ -372,6 +358,28 @@ export default class InsCmsContent extends Vue {
   padding-bottom: 3rem;
   position: relative;
   padding-top: 3rem;
+
+  .TopBorder {
+    margin-bottom: 6rem;
+    position: relative;
+    p {
+      font-size: 1.1rem;
+      color: #4d4d4d;
+      background: #fff;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      background-color: #ffdab9;
+      width: 100vw;
+      height: 1.5rem;
+      display: block;
+      left: 0;
+      top: calc(100% + 0.5rem);
+    }
+  }
+
   .FormTitle{
     font-size: 2.5rem;
     margin-top: 2rem;
@@ -388,33 +396,27 @@ export default class InsCmsContent extends Vue {
     }
   }
   .form-group{
+    margin-bottom: 2.5rem;
     .fieldset {
       border: none;
     }
     h4{
       background: #fff;
-      background-size: 100% 100%;
-      display: inline-block;
-      height: 3.5rem;
-      width: 40%;
-      text-align: center;
-      line-height: 3.5rem;
-      font-size: 1.2rem;
-      margin-bottom: .5rem;
-      border:1px solid #808080;
-      border-radius: 2px;
+      font-size: 1.1rem;
+      color: #4d4d4d;
+      margin-bottom: 1.5rem;
     }
     input[type="text"],input[type="email"]{
-      border:1px solid #808080;
-      height: 3.5rem;
-      line-height: 3.5rem;
-      width: 70%;
+      border: 1px solid #808080;
+      height: 2.5rem;
+      line-height: 2.5rem;
+      width: 100%;
       box-sizing: border-box;
       border-radius: 2px;
-      margin-bottom: .5rem;
-      text-indent: 1rem;
       outline: none;
-      font-size: 1.4rem;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      padding: 0 0.8rem;
     }
     textarea{
       border:1px solid #808080;
@@ -424,25 +426,27 @@ export default class InsCmsContent extends Vue {
       border-radius: 2px;
       margin-bottom: .5rem;
       outline: none;
-      font-size: 1.4rem;
+      font-size: 1.1rem;
+      padding: 0.8rem;
+      border-radius: 10px;
     }
     p[name="error"]{
       color:red;
       margin-bottom:.5rem;
     }
     .btn-default{
-      width: 40%;
-      float: right;
-      background: #333333;
-      height: 3.5rem;
-      line-height: 3.5rem;
-      color:#fff;
+      float: left;
+      background: @base_color;
+      height: 2.5rem;
+      line-height: 2.5rem;
+      color: #4d4d4d;
       background-size: 100%;
-      border:none;
-      margin-top: 1rem;
-      font-size: 1.4rem;
+      border: none;
+      margin-top: 2rem;
+      font-size: 1.2rem;
       margin-bottom: 5rem;
       border-radius: 2px;
+      padding: 0 1rem;
     }
   }
 }
@@ -535,7 +539,7 @@ export default class InsCmsContent extends Vue {
 }
 .Cmsbg{
     width:100%;
-    background: url('/images/mobile/MobileIndex_03.jpg') no-repeat center center;
+    // background: url('/images/mobile/MobileIndex_03.jpg') no-repeat center center;
     background-size: 100% 100%;
     display: inline-block;
     box-sizing: border-box;
