@@ -159,9 +159,9 @@ export default class InsRadio extends Vue {
                 cursor: pointer;
             }
             .chosen{
-                border: 1px solid #333;
+                border: 1px solid @base_color;
+                color:@base_color;
                 background-color: white;
-                color:#333;
             }
             .nochoice {
               cursor:not-allowed;

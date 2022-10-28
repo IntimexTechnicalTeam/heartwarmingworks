@@ -149,7 +149,7 @@ export default class InsComments extends Vue {
     padding:20px 20px 0 20px;
     border-radius: 5px;
     min-height: 20rem;
-    border:1px solid #000;
+    // border:1px solid #000;
     >.show_comment_img{
         position: fixed;
         top: 0;

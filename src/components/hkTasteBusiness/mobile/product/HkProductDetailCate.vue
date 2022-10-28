@@ -1,21 +1,20 @@
 <template>
 <div class="cateMain">
   <!-- 获取所在的产品目录 -->
-  <div  class="detail-select-attribute" v-for="(cat,index) in cateTree" :key="'cat'+index">
-    <div>
-      <ul class="common-select">
-        <li v-if="cat.ParentId!=0">{{cat.Name}}</li>
-      </ul>
-      <div class="clear"></div>
+  <div class="pro-attr category">
+    <div class="attribute-item" v-for="(cat,index) in cateTree" :key="index">
+      <span class="attr-label" v-if="!cat.ParentId">{{cat.Name}} ：</span>
+      <span v-else>{{cat.Name}}</span>
     </div>
   </div>
-    <!-- 获取所在的产品非库存属性 -->
-  <div  class="detail-select-attribute" v-for="(attr,index) in source" :key="'attr'+index">
-    <div v-if="attr.length>0">
-      <ul class="common-select">
-        <li v-for="(one,index) in attr" :key="'sub'+index">{{one.Name}}</li>
-      </ul>
-      <div class="clear"></div>
+
+  <!-- 获取所在的产品非库存属性 -->
+  <div class="pro-attr attr">
+    <div class="attribute-item" v-for="(attr,index) in source" :key="index">
+      <template v-if="attr.length">
+        <span class="attr-label">{{attr[0].Type.Name}} ：</span>
+        <span v-for="(one,index2) in attr" :key="index2">{{one.Name}}</span>
+      </template>
     </div>
   </div>
   </div>
@@ -29,45 +28,32 @@ export default class PkProductDetailCate extends Vue {
 }
 </script>
 <style scoped lang="less">
-ul,li{
-  list-style: none;
+.cateMain {
+  width: 94% !important;
+  margin: 2rem auto !important;
 }
-.cateMain{
-    width: 95%;
-    margin: 0 auto;
-}
-.clear{
-  clear: both;
-}
-.detail-select-attribute{
-  width:100%;
-  display: block;
-  margin-bottom: 1rem;
-}
-.detail-select-attribute .detail-select-title{
-    width: 20%;
-    margin-right: 5%;
-    word-break: break-all;
-    float: left;
-    font-size: 1.2rem;
-    text-align: right;
-}
-.detail-select-attribute .common-select{
-  width:75%;
-  word-break: break-all;
-  float: left;
-}
-.detail-select-attribute .common-select li{
-    display: inline-block;
-    background-color: #262626;
-    color: #FFF;
-    margin-right: 0.5rem;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    padding-top: .7rem;
-    padding-bottom: .7rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    border-radius: 5px;
+.pro-attr {
+  .attribute-item {
+    > span {
+      font-size: 1.1rem;
+      color: #4d4d4d;
+
+      &:not(.attr-label) {
+        padding: 0 10px;
+      }
+    }
+  }
+
+  &.category {
+    .attribute-item{
+      display: inline-block;
+    }
+  }
+
+  &.attr {
+    .attribute-item {
+      margin: 0.5rem 0;
+    }
+  }
 }
 </style>

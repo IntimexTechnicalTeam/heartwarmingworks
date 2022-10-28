@@ -176,9 +176,11 @@ export default class InsProductWindow extends Vue {
 
 <style lang="less" scoped>
 .product_item {
-    border: 3px solid #fff;
-    border-radius: 20px;
-    overflow: hidden;
+    .in_pdWindow_page_item {
+      border: 3px solid #fff;
+      border-radius: 20px;
+      overflow: hidden;
+    }
 
     /deep/ .in_pdWindow_item_description {
       display: flex;
@@ -208,7 +210,9 @@ export default class InsProductWindow extends Vue {
     }
 
     &:hover {
-      border-color: @base_color;
+      .in_pdWindow_page_item {
+        border-color: @base_color;
+      }
 
       .in_pdWindow_item_description {
         opacity: 1;

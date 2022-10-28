@@ -253,9 +253,7 @@ export default class InsProductDetail extends Vue {
     margin-top: 100px;
 }
 .isActive{
-  color:#FFF!important;
-  background: #262626 !important;
-  border:1px solid #262626;
+  border-bottom: 2px solid @base_color;
 }
 .productDetail_container {
   margin:0 auto;
@@ -269,24 +267,21 @@ export default class InsProductDetail extends Vue {
       justify-content: space-between;
       margin-bottom: 10px;
       .comment_title,.detail_title{
-        width: 20%;
+        width: 18%;
         text-align: center;
-        font-size: 20px;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        border:1px solid #000;
+        font-size: 24px;
+        padding: 10px;
         float: left;
         margin-right:24px;
         cursor: pointer;
         background: #FFF;
-        border-radius: 5px;
-        color:#000;
+        color: #4d4d4d;
       }
-      .comment_title{
-        border:1px solid #000;
-        color:#000;
-        cursor: pointer;
-      }
+      // .comment_title{
+      //   border:1px solid #000;
+      //   color:#000;
+      //   cursor: pointer;
+      // }
     }
     .product_detail{
       background-color: white;
@@ -294,10 +289,13 @@ export default class InsProductDetail extends Vue {
       display: block;
       clear: both;
       min-height: 300px;
-      border:1px solid #000;
+      // border:1px solid #000;
       border-radius: 5px;
+          font-size: 24px;
+    color: #4d4d4d;
       p{
-        font-size: 1.6rem;
+        font-size: 24px;
+        color: #4d4d4d;
      }
     }
   }

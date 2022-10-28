@@ -197,7 +197,7 @@ export default class InsComments extends Vue {
     min-height: 7rem;
     font-size: 1.3rem;
     color: #333;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     border-radius: 5px;
     margin-top: 1rem;
     min-height: 20rem;

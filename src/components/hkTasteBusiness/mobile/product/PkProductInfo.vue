@@ -1,13 +1,13 @@
 <template>
 <div class="in_panel_header">
+  <div class="in_pannel_addtofav"><img :src="panelDetail.IsFavorite ? '/HW/fav.png': '/HW/unfav.png'" @click="addFavorite"/></div>
     <div class="in_panel_subTitle">{{panelDetail.Name}}</div>
-    <div class="in_panel_subTitle"><inPrices :primePrices="panelDetail.ListPrice+AddPrice" :currentPrices="panelDetail.SalePrice+AddPrice"  :currency="panelDetail.Currency" :DefaultListPrice="panelDetail.DefaultListPrice+AddPrice" :DefaultSalePrice="panelDetail.DefaultSalePrice+AddPrice" :DefaultCurrency="panelDetail.DefaultCurrency" size="huge" :heightLine="true" styla="margin: 1rem 0;" :max="panelDetail.MaxPurQty" :min="panelDetail.MinPurQty"></inPrices></div>
-    <div class="in_pannel_addtofav"><img :src="panelDetail.IsFavorite ? '/images/pc/productDetail_01.png': '/images/pc/productDetail_05.png'" @click="addFavorite"/></div>
+    <div class="in_panel_subTitle"><inPrices :primePrices="panelDetail.ListPrice+AddPrice" :currentPrices="panelDetail.SalePrice+AddPrice"  :currency="panelDetail.Currency" :DefaultListPrice="panelDetail.DefaultListPrice+AddPrice" :DefaultSalePrice="panelDetail.DefaultSalePrice+AddPrice" :DefaultCurrency="panelDetail.DefaultCurrency" size="huge" :heightLine="true" styla="margin: 1.5rem 0;" :max="panelDetail.MaxPurQty" :min="panelDetail.MinPurQty"></inPrices></div>
     <div class="in_unitInfo" v-if="panelDetail.UnitInfo.Desc!==null">{{$t('product.Unit')}}:{{panelDetail.UnitInfo.Desc}}</div>
     <div class="in_panel_product">
         <div class="ProductCode">
             <div class="leftpart">{{$t("product.ProductCode")}}: {{panelDetail.Code}}</div>
-            <div class="rightpart">{{$t("Action.Share")}}:<HkProductShare></HkProductShare></div>
+            <div class="rightpart"><HkProductShare></HkProductShare></div>
         </div>
     </div>
 </div>
@@ -70,31 +70,29 @@ export default class PkProductInfo extends Vue {
   margin: 0 auto;
 }
 .in_panel_header{
-  width: 100%;
+  width: 94%;
+  margin: 0 auto;
   display: block;
 }
 .in_panel_product{
     width: 100%;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid #505050;
-    padding-top: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid @base_color;
+    padding-top: 2rem;
 }
 .in_pannel_addtofav{
-    width: 95%;
-    margin: 0 auto;
     text-align: center;
+    float: right;
+    margin-top: 0.5rem;
 }
 .in_pannel_addtofav img{
-    width:2.5rem;
+    width:1.8rem;
 }
-.in_panel_product .ProductCode{
-    width: 95%;
-    margin: 0 auto;
-}
+
 .in_panel_product .ProductCode .leftpart{
     width:50%;
     float: left;
-    font-size: 1.2rem;
+    font-size: 1rem;
     word-break: break-all;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -102,7 +100,7 @@ export default class PkProductInfo extends Vue {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    padding-top: .5rem;
+    color: #4d4d4d;
 }
 .in_panel_product .ProductCode .rightpart{
     width: 50%;
@@ -115,18 +113,31 @@ export default class PkProductInfo extends Vue {
 }
 .in_panel_subTitle{
     font-size: 2rem;
+    color: #4d4d4d;
     position: relative;
-    width: 90%;
-    margin: 0 auto;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   >img{
     position: absolute;
     right: 0;
     top: 50%;
     transform: translate(0,-50%);
+  }
+
+  /deep/ .prices_warrper {
+    .primePricesMain {
+      margin-bottom: 0.5rem;
+      .huge {
+        font-size: 1.1rem !important;
+        color: #808080 !important;
+      }
+    }
+
+    .currentPricesMain {
+      .huge {
+        font-size: 1.3rem !important;
+        color: #4d4d4d !important;
+        font-weight: normal !important;
+      }
+    }
   }
 }
 </style>

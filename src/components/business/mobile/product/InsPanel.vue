@@ -237,7 +237,7 @@ export default class InsPanel extends Vue {
   font-size: 1.6rem;
 }
 .in_panel_warpper .in_num_label{
-  display: inline-block;
+  display: none;
   width: auto!important;
   margin-right: 1rem;
 }
@@ -250,15 +250,16 @@ export default class InsPanel extends Vue {
   box-sizing: border-box;
   width: 4rem;
 }
-.in_panel_warpper .in_num_main .el-input-number__decrease, .in_panel_warpper .in_num_main .el-input-number__increase{
-    width: 2.5rem!important;
-    border: 1px solid #000;
-    border-radius: 5px;
-    height: 2.5rem;
-    line-height: 2.5rem;
+.in_panel_warpper .in_num_main{
+  text-align: center;
 }
-.in_panel_warpper .in_num_main .el-input-number__decrease i, .in_panel_warpper .in_num_main .el-input-number__increase i{
-  color:#000;
+.in_panel_warpper .in_num_main .el-input-number__decrease, .in_panel_warpper .in_num_main .el-input-number__increase{
+  width: 30px;
+  border-radius: 50%;
+  height: 30px;
+  line-height: 30px;
+  background: #ff8517;
+  color: #fff;
 }
 .in_panel_warpper  .el-input-number{
   width: auto!important;
@@ -267,16 +268,16 @@ export default class InsPanel extends Vue {
   padding-left: 0rem;
   padding-right: 0rem;
   background: transparent!important;
-  width: 10rem;
+  width: 15rem;
   line-height: 2.5rem!important;
   height: 2.5rem!important;
   color:#000!important;
   font-weight: 500;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 .mobileWarper{
   .in_num_warpper{
-    margin-top: 1rem;
+    margin: 2rem 0;
     .in_num_label{
       color:#666666;
     }
@@ -335,23 +336,22 @@ export default class InsPanel extends Vue {
         }
       }
     .in_btn {
-      height: 3.5rem;
-      font-size:1.8rem;
-      color: #333333;
+      height: 2.8rem;
+      font-size:1.1rem;
+      color: #4d4d4d;
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      background-color: #333333;
-      color: #fff;
       border-radius: 3px;
       margin-bottom: 1rem;
-      border:1px solid #333333;
+      background: #fff;
+      border:1px solid @base_color;
       text-transform: uppercase;
-      width: 48%;
+      width: 45%;
       float: left;
       margin-left: 4%;
       span{
-        font-size:1.4rem;
+        font-size:1.1rem;
       }
       &:first-child {
         margin-left: 0px!important;
@@ -413,7 +413,7 @@ export default class InsPanel extends Vue {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 1.6rem;
+  margin-top: 1.5rem;
 }
 
 .productDetail_price_warpper {
@@ -446,7 +446,7 @@ export default class InsPanel extends Vue {
   text-decoration: line-through;
 }
 .in_panel_iconList {
-  margin-top: 3.3rem;
+  margin-top: 1rem;
   text-align: left;
   display: flex;
   flex-wrap: nowrap;

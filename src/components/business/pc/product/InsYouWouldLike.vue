@@ -20,7 +20,7 @@
 <script lang="ts">
 import YouWouldLike from '@/model/youWouldLike';
 import inButton from '@/components/base/pc/InsButton.vue';
-import inProductWindow from '@/components/hkTasteBusiness/pc/product/HkProductWindow.vue';
+import inProductWindow from '@/components/siteBusiness/pc/product/ProItem.vue';
 import Currency from '@/model/currency';
 import { Vue, Prop, Component, Watch } from 'vue-property-decorator';
 import { swiper, swiperSlide } from 'vue-awesome-swiper/src';

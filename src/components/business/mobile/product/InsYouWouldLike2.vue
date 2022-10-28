@@ -13,7 +13,7 @@
 <script lang="ts">
 import YouWouldLike from '@/model/youWouldLike';
 import inButton from '@/components/base/mobile/InsButton.vue';
-import inProductWindow from '@/components/hkTasteBusiness/mobile/product/HkProductWindow.vue';
+import inProductWindow from '@/components/siteBusiness/mobile/product/ProItem.vue';
 import Currency from '@/model/currency';
 import { Vue, Prop, Component, Watch } from 'vue-property-decorator';
 import { swiper, swiperSlide } from 'vue-awesome-swiper/src';

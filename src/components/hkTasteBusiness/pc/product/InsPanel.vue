@@ -7,11 +7,10 @@
         :key="index"
         placeholder="请选择"
         v-model="ProductInfor['Attr'+(index+1)]"
-        styla="padding: 0 10px;"
         @input="changeAttr"
         @changePrice="AdditionalPrice"
       ></inSelect>
-      <inNum  :label="$i18n.t('product.countTitle')" v-model="ProductInfor.Qty" :v="ProductInfor.Qty" size="middle" :min="panelDetail.MinPurQty" :max="panelDetail.MaxPurQty" styla="padding: 0 10px;"></inNum>
+      <inNum  :label="$i18n.t('product.countTitle')" v-model="ProductInfor.Qty" :v="ProductInfor.Qty" size="middle" :min="panelDetail.MinPurQty" :max="panelDetail.MaxPurQty" ></inNum>
       <div class="in_panel_iconList">
         <div v-for="item in panelDetail.icons" :key="item.id" class="in_panel_icon_warpper">
           <img :src="item.src" />
@@ -28,7 +27,7 @@
        :loading="(item.action === 'addToCart')?Loading:buyLoading"
         :nama="$i18n.t('product.'+item.nama)"
         :key="item.nama"
-        width="48%"
+        width="45%"
         :type="(item.action === 'addToCart' || item.action === 'favorite' || item.action === 'buy') ? 'primary' : 'error'"
         :action="item.action"
         @click="click"
@@ -263,29 +262,33 @@ export default class Panel extends Vue {
   box-sizing: border-box;
   width: 4rem;
 }
-.PcVersion  .el-input-number__decrease,.PcVersion .el-input-number__increase{
-    width: 2rem !important;
-    border: 1px solid #000;
-    border-radius: 5px;
-    height: 2rem;
-    line-height: 2rem;
+
+.PcVersion .in_num_main {
+  margin: 30px 0;
 }
-.PcVersion .el-input-number__decrease i, .el-input-number__increase i{
-  color:#000;
+
+.PcVersion  .el-input-number__decrease,.PcVersion .el-input-number__increase{
+  width: 25px;
+  border-radius: 50%;
+  height: 25px;
+  line-height: 25px;
+  background: #ff8517;
+  color: #fff;
 }
 .PcVersion  .el-input-number{
   width: auto!important;
+  line-height: 25px;
 }
 .PcVersion .el-input-number .el-input__inner{
   padding-left: 0rem;
-  padding-right: 0rem;
-  background: transparent!important;
-  width: 10rem;
-  line-height: 2rem!important;
-  height: 2rem!important;
-  color:#000!important;
-  font-weight: 500;
-  font-size: 1.4rem;
+    padding-right: 0rem;
+    background: transparent!important;
+    width: 10rem;
+    line-height: 25px;
+    height: 25px;
+    color: #000 !important;
+    font-weight: 500;
+    font-size: 20px;
 }
 </style>
 <style lang="less" scoped>
@@ -425,22 +428,21 @@ export default class Panel extends Vue {
       }
       .in_btn {
         height: 60px;
-        font-size: 24px;
-        color: @base_color;
+        font-size: 21px;
+        color: #4d4d4d;
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        border: 1px solid @base_color;
+        border-bottom: 1px solid @base_color;
         background-color: unset;
-        border-radius: 5px;
         transition: .1s;
-        &:hover{
-          transform: translateY(-3px);
-        }
+        // &:hover{
+        //   transform: translateY(-3px);
+        // }
         &:first-child {
-          background-color: @base_color;
-          color: #fff;
-          margin-right: 4%;
+          // background-color: @base_color;
+          // color: #fff;
+          margin-right: 10%;
         }
       }
     }
