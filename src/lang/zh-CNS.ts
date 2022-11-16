@@ -212,7 +212,8 @@ export default {
     Login: '跳转登录',
     Registerdigital: '长度由8至20个字符 须包含大写字母、小写字母及数字',
     promotionalinformation: '我同意接收推广信息',
-    Createanaccount: '創建一個帳戶'
+    Createanaccount: '創建一個帳戶',
+    Referrer: '推荐人'
   },
   DeliveryAddress: {
     AddAddress: '新增地址',

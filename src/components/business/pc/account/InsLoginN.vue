@@ -57,6 +57,7 @@
                      <InsInput2 :placeholder="$t('DeliveryAddress.Mobile')" width="100%" :must="false"  v-model="registerForm.Mobile"  type="phone"/>
                 </div>
                 <InsInput2 :placeholder="$t('Register.UserEmail')" v-model="registerForm.email" width="100%" type="email" />
+                <InsInput2 :placeholder="$t('Register.Referrer')" v-model="registerForm.RecommendEmail" width="100%" :must="false" />
                 </InsForm>
                 <!-- <div></div> -->
                 <CheckboxGroup v-model="terms" style="margin: 10px 0 0 0">
@@ -97,7 +98,8 @@ export default class InsLoginN extends Vue {
       confirmPassword: '',
       Language: '',
       Mobile: '',
-      OptOutReceiving: true
+      OptOutReceiving: true,
+      RecommendEmail: ''
     }
     get currentlang () {
       return this.$Storage.get('locale');

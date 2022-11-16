@@ -212,7 +212,8 @@ export default {
     Login: 'Login now!',
     Registerdigital: 'Length from 8 to 20 must contain uppercase letters, lowercase letters and numbers',
     promotionalinformation: 'I agree to receive promotional information',
-    Createanaccount: 'Create an account'
+    Createanaccount: 'Create an account',
+    Referrer: 'Referrer'
   },
   DeliveryAddress: {
     AddAddress: 'Add address',
