@@ -1,8 +1,8 @@
 <template>
   <div class="main_warpper">
-    <ins-header  v-show="routerPath!=='/building'" />
+    <ins-header v-if="!(routerPath==='/building' || routerName==='vr')" />
     <router-view></router-view>
-    <ins-footer  v-show="routerPath!=='/building'" />
+    <ins-footer v-if="!(routerPath==='/building' || routerName==='vr')" />
     <!-- <ins-sidebar /> -->
     <ins-slide-menu :direction="'right'">
       <ins-menu-layout />
@@ -30,6 +30,9 @@ export default class mobileIndex extends Vue {
   }
   get routerPath() {
     return this.$route.path;
+  }
+  get routerName() {
+    return this.$route.name;
   }
   private changLange (lang) {
     this.$Api.member.setUILanguage(lang).then((result) => {

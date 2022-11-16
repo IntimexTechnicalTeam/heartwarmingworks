@@ -328,6 +328,11 @@ export const pRoutes = [
         path: 'admin',
         name: 'admin',
         component: () => import(/* webpackChunkName: "main" */ '@/views/pc/InsAdmin.vue')
+      },
+      {
+        path: '/vr/:key',
+        name: 'vr',
+        component: () => import(/* webpackChunkName: "main" */ '@/components/siteBusiness/pc/vr.vue')
       }
     ]
   }
@@ -643,6 +648,11 @@ export const mRoutes = [
         path: 'admin',
         name: 'admin',
         component: () => import(/* webpackChunkName: "main" */ '@/views/mobile/InsAdmin.vue')
+      },
+      {
+        path: '/vr/:key',
+        name: 'vr',
+        component: () => import(/* webpackChunkName: "main" */ '@/components/siteBusiness/mobile/vr.vue')
       }
     ]
   }

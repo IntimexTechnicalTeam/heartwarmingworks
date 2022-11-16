@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Header v-show="routerPath!=='/building'" />
+    <Header v-if="!(routerPath==='/building' || routerName==='vr')" />
     <router-view></router-view>
-    <Footer v-show="routerPath!=='/building'"/>
+    <Footer v-if="!(routerPath==='/building' || routerName==='vr')"/>
     <!-- <Sidebar /> -->
   </div>
 </template>
@@ -19,6 +19,10 @@ import { Component, Vue } from 'vue-property-decorator';
 export default class pcIndex extends Vue {
   get routerPath() {
     return this.$route.path;
+  }
+
+  get routerName() {
+    return this.$route.name;
   }
 }
 </script>

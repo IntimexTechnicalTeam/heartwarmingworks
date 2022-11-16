@@ -98,6 +98,11 @@ export default class DefaultHeader extends Vue {
   mounted () {
     this.getMenu();
   }
+
+  @Watch('$route', { deep: true })
+  onIdChange () {
+    this.show = false;
+  }
 }
 </script>
 
@@ -235,24 +240,23 @@ export default class DefaultHeader extends Vue {
 
 // new css
 .header-layout {
-  height: 50px;
   position: relative;
 
   .menu-nav {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 50px);
     right: calc(100% + 50px);
     z-index: 2;
     cursor: pointer;
 
     /deep/ .nav-box {
       min-height: 750px;
-      width: 130px;
+      width: 150px;
       position: absolute;
       top: 100%;
       right: 0;
       background: #fff;
-      padding: 30px 0;
+      padding: 30px 10px;
       box-sizing: border-box;
 
       .handle-group {

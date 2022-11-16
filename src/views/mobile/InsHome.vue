@@ -6,6 +6,8 @@
       <Promotion cmsKey="k_abs" />
       <Promotion1 page="home" :position="1" />
       <Promotion2 cmsKey="k_news" />
+
+      <router-link to="/vr/vr360" class="vr-box"></router-link>
     </div>
   </div>
 </template>
@@ -46,5 +48,15 @@ export default class InsHome extends Vue {
 .banner {
   // min-height: 100vh;
   background-color: white;
+}
+
+.vr-box {
+  display: block;
+  height: 16rem;
+  background: url(/HW/m-vr-bg.jpg) no-repeat center;
+  background-size: 100% 100%;
+  cursor: pointer;
+  width: 88%;
+  margin: 0 auto 3rem;
 }
 </style>
