@@ -211,7 +211,7 @@ export default class InsProductWindow extends Vue {
 
     &:hover {
       .in_pdWindow_page_item {
-        border-color: @base_color;
+        border-color: @base_color2;
       }
 
       .in_pdWindow_item_description {

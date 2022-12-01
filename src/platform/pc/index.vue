@@ -3,7 +3,7 @@
     <Header v-if="!(routerPath==='/building' || routerName==='vr')" />
     <router-view></router-view>
     <Footer v-if="!(routerPath==='/building' || routerName==='vr')"/>
-    <!-- <Sidebar /> -->
+    <Sidebar />
   </div>
 </template>
 

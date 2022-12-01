@@ -1,5 +1,5 @@
 <template>
-  <div id="container">
+  <div id="container" class="HW-top">
     <pageBanner page="PromProductList" :position="0" />
 
     <div class="ProductSearch">

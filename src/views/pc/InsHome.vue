@@ -1,5 +1,5 @@
 <template>
-  <div class="home" v-cloak>
+  <div class="home HW-top" v-cloak>
     <div class="mid-box">
       <HomeBanner :initOptions="swiperOption" :page="'Home'" :initSwiper="true" class="banner" />
 
@@ -71,11 +71,6 @@ export default class InsHome extends Vue {
 v-cloak{
   display: none;
 }
-
-.home {
-  padding-top: 50px;
-}
-
 .mainbanner {
   height: 200px;
 }

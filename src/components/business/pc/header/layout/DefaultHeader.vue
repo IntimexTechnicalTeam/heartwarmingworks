@@ -1,6 +1,6 @@
 <template>
 <div class="header-layout mid-box" v-cloak>
-  <div class="menu-nav">
+  <div class="menu-nav" v-click-outside="close">
     <img src="/HW/nav.png" @click="show = !show" />
 
     <div class="nav-box" v-show="show">
@@ -46,6 +46,10 @@ export default class DefaultHeader extends Vue {
 
   private key: string = '';
   private show: boolean = false;
+
+  close () {
+    this.show = false;
+  }
 
   getMenu () {
     this.$Api.promotion
@@ -360,6 +364,23 @@ export default class DefaultHeader extends Vue {
         display: block;
       }
     }
+  }
+}
+
+@media screen and (max-width: 1600px){
+  .header-layout .menu-nav {
+    .nav-box {
+      right: unset;
+      left: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 1420px){
+  .header-layout .menu-nav {
+    right: unset;
+    left: 0;
+    background: #ffff;
   }
 }
 </style>

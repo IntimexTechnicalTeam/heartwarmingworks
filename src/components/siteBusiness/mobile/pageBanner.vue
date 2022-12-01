@@ -51,6 +51,7 @@ export default class PrmBanner extends Vue {
 
     @Watch('imgPath')
     onChange () {
+      this.bannerList = [];
       this.bannerList.push({
         Image: this.imgPath
       });

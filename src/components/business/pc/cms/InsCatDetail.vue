@@ -1,5 +1,5 @@
 <template>
-  <div id="container" class="catDetail">
+  <div id="container" class="catDetail HW-top">
     <pageBanner :imgPath="cmsCategory.ImagePath" />
 
     <div class="catContent">

@@ -3,7 +3,7 @@
     <ins-header v-if="!(routerPath==='/building' || routerName==='vr')" />
     <router-view></router-view>
     <ins-footer v-if="!(routerPath==='/building' || routerName==='vr')" />
-    <!-- <ins-sidebar /> -->
+    <ins-sidebar />
     <ins-slide-menu :direction="'right'">
       <ins-menu-layout />
     </ins-slide-menu>

@@ -1,6 +1,6 @@
 <template>
   <div class="siderbarContainer">
-    <div id="sidebar" v-show="isShow">
+    <!-- <div id="sidebar" v-show="isShow">
       <a href="javascript:void(0);" @click="toTop"
         ><img src="/static/Image/mobile/home/down.png"
       /></a>
@@ -23,7 +23,7 @@
           ><img src="/static/Image/mobile/home/news.png"
         /></a>
       </span>
-    </div>
+    </div> -->
     <!-- 显示livechat -->
     <div class="fb-livechat">
       <div class="ctrlq fb-overlay"></div>

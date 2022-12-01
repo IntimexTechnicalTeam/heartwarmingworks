@@ -1,5 +1,5 @@
 <template>
-<div class="productDetailWarper PcVersion">
+<div class="productDetailWarper PcVersion HW-top">
 
   <div v-if="this.Permission == 3" class="IsDetailshow">
 

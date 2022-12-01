@@ -14,13 +14,13 @@
       </transition> -->
       <div class="CmsContent">
         <div v-html="content.Body"></div>
-      </div>
 
       <!-- 表单信息 -->
         <div class="FormMain">
           <p class="FormTitle">{{FormTitle}}</p>
           <div v-html="htmlString" class="to_vertical" id="content"></div>
           <div id="preview" style="display:none;"></div>
+        </div>
         </div>
     </div>
     <!-- 其他页面 -->
@@ -55,7 +55,7 @@ export default class InsCmsContent extends Vue {
   CateDesc: string = '';
   content: any[] = [];
   FormContent:any='';
-  private ImgList: string[] = [];
+  private ImgList: string = '';
   private ispic:boolean=false;
   IsPay:boolean= false;
   IsLogin:boolean=false;
@@ -353,8 +353,6 @@ export default class InsCmsContent extends Vue {
   }
 }
 .MobileContact .FormMain{
-  width:90%;
-  margin:0 auto;
   padding-bottom: 3rem;
   position: relative;
   padding-top: 3rem;
@@ -371,7 +369,7 @@ export default class InsCmsContent extends Vue {
     &::after {
       position: absolute;
       content: '';
-      background-color: #ffdab9;
+      background-color: @base_color2;
       width: 100vw;
       height: 1.5rem;
       display: block;
@@ -436,7 +434,7 @@ export default class InsCmsContent extends Vue {
     }
     .btn-default{
       float: left;
-      background: @base_color;
+      background: @base_color2;
       height: 2.5rem;
       line-height: 2.5rem;
       color: #4d4d4d;

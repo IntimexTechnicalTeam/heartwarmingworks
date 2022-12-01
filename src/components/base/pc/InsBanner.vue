@@ -150,7 +150,7 @@ export default class InsBanner extends Vue {
   width: 100%;
 }
 .faker{
-  width: 100vw;
+  width: 100%;
   height: 28.7vw;
   background-color: aliceblue;
 }

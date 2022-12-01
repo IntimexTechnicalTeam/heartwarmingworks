@@ -477,7 +477,7 @@ export default class InsLogin extends Vue {
   font-size: 17px;
   padding: 10px 0;
   border-bottom: none;
-  background-color: #cccccc;
+  background-color: #666666;
   text-align: center;
   text-indent: 0px;
 }

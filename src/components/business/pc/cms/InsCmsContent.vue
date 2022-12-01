@@ -1,5 +1,5 @@
 <template>
-  <div id="container" class="PcContact">
+  <div id="container" class="PcContact HW-top">
   <pageBanner :imgPath="ImgList" />
   <!-- 联络我们页面 -->
     <div class="Cmsbg" v-if="content.Key=='contactUs'">
@@ -53,7 +53,7 @@ export default class InsCmsContent extends Vue {
   CateName: string = '';
   CateDesc: string = '';
   content: any[] = [];
-  private ImgList: string[] = [];
+  private ImgList: string = '';
   private ispic:boolean=false;
   IsMobile:boolean=false;
   MapInfo:string='';
@@ -296,7 +296,7 @@ export default class InsCmsContent extends Vue {
   padding-top: 3rem;
 
   .TopBorder {
-    background-color: @base_color;
+    background-color: @base_color2;
     margin-bottom: 100px;
     p {
       font-size: 24px;
@@ -349,7 +349,7 @@ export default class InsCmsContent extends Vue {
   }
   .btn-default{
     float: left;
-    background: @base_color;
+    background: @base_color2;
     height: 60px;
     line-height: 60px;
     color: #4d4d4d;
