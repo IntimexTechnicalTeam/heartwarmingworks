@@ -3,6 +3,7 @@
     <div class="mid-box">
       <HomeBanner :initOptions="swiperOption" :page="'Home'" :initSwiper="true" class="banner" />
 
+      <Promotion3 cmsKey="k_brand" />
       <Promotion cmsKey="k_abs" />
       <Promotion1 page="home" :position="1" />
       <Promotion2 cmsKey="k_news" />
@@ -20,7 +21,8 @@ import api from '@/sdk/api/Api.ts';
     HomeBanner: () => import('@/components/base/pc/InsBanner.vue'),
     Promotion: () => import('@/components/siteBusiness/pc/home/Promotion.vue'),
     Promotion1: () => import('@/components/siteBusiness/pc/home/Promotion1.vue'),
-    Promotion2: () => import('@/components/siteBusiness/pc/home/Promotion2.vue')
+    Promotion2: () => import('@/components/siteBusiness/pc/home/Promotion2.vue'),
+    Promotion3: () => import('@/components/siteBusiness/pc/home/Promotion3.vue')
 
     // HkPromotion: () => import(/* webpackChunkName: "home" */ '@/components/hkTasteBusiness/pc/home/HkPromotion.vue'),
     // HkBranch: () => import(/* webpackChunkName: "home" */ '@/components/hkTasteBusiness/pc/home/HkBranch.vue'),

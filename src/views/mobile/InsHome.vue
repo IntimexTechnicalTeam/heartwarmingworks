@@ -3,6 +3,7 @@
     <HomeBanner :initOptions="swiperOption" :page="'Home'" :initSwiper="true" class="banner" />
 
     <div class="mid-box">
+      <Promotion3 cmsKey="k_brand" />
       <Promotion cmsKey="k_abs" />
       <Promotion1 page="home" :position="1" />
       <Promotion2 cmsKey="k_news" />
@@ -19,7 +20,8 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
     HomeBanner: () => import('@/components/base/mobile/InsBanner.vue'),
     Promotion: () => import('@/components/siteBusiness/mobile/home/Promotion.vue'),
     Promotion1: () => import('@/components/siteBusiness/mobile/home/Promotion1.vue'),
-    Promotion2: () => import('@/components/siteBusiness/mobile/home/Promotion2.vue')
+    Promotion2: () => import('@/components/siteBusiness/mobile/home/Promotion2.vue'),
+    Promotion3: () => import('@/components/siteBusiness/mobile/home/Promotion3.vue')
 
     // HkPromotion: () => import('@/components/hkTasteBusiness/mobile/home/HkPromotion.vue'),
     // HkBranch: () => import('@/components/hkTasteBusiness/mobile/home/HkBranch.vue'),
