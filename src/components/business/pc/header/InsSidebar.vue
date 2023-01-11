@@ -1,19 +1,19 @@
 <template>
   <div class="siderbarContainer">
-    <!-- <div id="sidebar" v-show="isShow">
+    <div id="sidebar" v-show="isShow">
       <a href="javascript:void(0);" @click="toTop"
         ><img src="/static/Image/mobile/home/down.png"
       /></a>
-      <a href="javascript:void(0);" @click="show = !show"
+      <!-- <a href="javascript:void(0);" @click="show = !show"
         ><img src="/static/Image/mobile/home/down2.png"
-      /></a>
+      /></a> -->
       <span v-show="show">
         <a
-          href="https://api.whatsapp.com/send?phone=8529876%205436&text=%E6%88%91%E6%83%B3%E6%9F%A5%E8%AF%A2%E4%B8%80%E4%B8%8B"
+          href="https://api.whatsapp.com/send?phone=85269355856&text=%E6%88%91%E6%83%B3%E6%9F%A5%E8%AF%A2%E4%B8%80%E4%B8%8B"
           target="_blank"
           ><img src="/static/Image/mobile/home/whatsapp.png"
         /></a>
-        <a href="javascript:;" class="livechat" @click="showLivechat"
+        <!-- <a href="javascript:;" class="livechat" @click="showLivechat"
           ><img src="/static/Image/mobile/home/facebook.png"
         /></a>
         <a href="tel:85298765436" class="fb-button" target="_blank"
@@ -21,9 +21,9 @@
         /></a>
         <a href="mailto:info@hktaste.com.hk" class="fb-button"
           ><img src="/static/Image/mobile/home/news.png"
-        /></a>
+        /></a> -->
       </span>
-    </div> -->
+    </div>
     <!-- 显示livechat -->
     <div class="fb-livechat">
       <div class="ctrlq fb-overlay"></div>
@@ -67,7 +67,7 @@ import $ from 'jquery';
 export default class InsSidebar extends Vue {
   isShow: boolean = true;
   showFBMessenger: boolean = false;
-  show: boolean = false;
+  show: boolean = true;
   showLivechat() {
     $('.fb-livechat').fadeToggle();
   }
